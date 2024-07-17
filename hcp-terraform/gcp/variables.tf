@@ -3,5 +3,5 @@ variable "region" {
 }
 
 variable "project_id" {
-  dedescription = "value"
+  description = "value"
 }
