@@ -19,5 +19,5 @@ module "hashicat-gcp" {
   source = "./gcp-compute"
 
   image_id = data.hcp_packer_artifact.hashicat-image.external_identifier
-  region       = var.region
+  region   = var.region
 }
