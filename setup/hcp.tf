@@ -5,19 +5,43 @@ resource "tfe_project" "project" {
 }
 
 resource "tfe_workspace" "azure" {
-  name         = "hashicats-azure"
+  name         = "hashicat-azure"
   project_id   = tfe_project.project.id
   organization = var.organization_name
+
+  working_directory = "hcp-terraform/azure/"
+  vcs_repo {
+    identifier = var.vcs_repo
+    branch = var.vcs_branch
+    github_app_installation_id = var.github_app_installation_id
+  }
+  trigger_patterns = ["hcp-terraform/azure/"]
 }
 resource "tfe_workspace" "gcp" {
-  name         = "hashicats-gcp"
+  name         = "hashicat-gcp"
   project_id   = tfe_project.project.id
   organization = var.organization_name
+
+  working_directory = "hcp-terraform/gcp/"
+  vcs_repo {
+    identifier = var.vcs_repo
+    branch = var.vcs_branch
+    github_app_installation_id = var.github_app_installation_id
+  }
+  trigger_patterns = ["hcp-terraform/gcp/"]
 }
 resource "tfe_workspace" "aws" {
-  name         = "hashicats-aws"
+  name         = "hashicat-aws"
   project_id   = tfe_project.project.id
   organization = var.organization_name
+
+  working_directory = "hcp-terraform/aws/"
+  vcs_repo {
+    identifier = var.vcs_repo
+    branch = var.vcs_branch
+    github_app_installation_id = var.github_app_installation_id
+  }
+  trigger_patterns = ["hcp-terraform/aws/"]
 }
 
 # resource "tfe_variable" "tfc_aws_provider_auth" {
