@@ -4,7 +4,7 @@ resource "google_compute_instance" "default" {
   name         = "hashicat-gcp"
   machine_type = "n2-standard-2"
   zone         = var.region
-  hostname     = "hashicat-gcp"
+  # hostname     = "hashicat-gcp"
 
   tags = ["foo", "bar"]
 
