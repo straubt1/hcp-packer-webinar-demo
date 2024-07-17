@@ -29,7 +29,7 @@ resource "azurerm_network_security_group" "nsg" {
     destination_address_prefix = "*"
   }
 
-    security_rule {
+  security_rule {
     name                       = "allow_web_sg"
     priority                   = 101
     direction                  = "Inbound"
