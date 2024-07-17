@@ -11,12 +11,14 @@ resource "tfe_workspace" "azure" {
 
   working_directory = "hcp-terraform/azure/"
   vcs_repo {
-    identifier = var.vcs_repo
-    branch = var.vcs_branch
+    identifier                 = var.vcs_repo
+    branch                     = var.vcs_branch
     github_app_installation_id = var.github_app_installation_id
   }
-  trigger_patterns = ["hcp-terraform/azure/"]
+  trigger_patterns    = ["hcp-terraform/azure/"]
+  assessments_enabled = var.assessments_enabled
 }
+
 resource "tfe_workspace" "gcp" {
   name         = "hashicat-gcp"
   project_id   = tfe_project.project.id
@@ -24,12 +26,14 @@ resource "tfe_workspace" "gcp" {
 
   working_directory = "hcp-terraform/gcp/"
   vcs_repo {
-    identifier = var.vcs_repo
-    branch = var.vcs_branch
+    identifier                 = var.vcs_repo
+    branch                     = var.vcs_branch
     github_app_installation_id = var.github_app_installation_id
   }
-  trigger_patterns = ["hcp-terraform/gcp/"]
+  trigger_patterns    = ["hcp-terraform/gcp/"]
+  assessments_enabled = var.assessments_enabled
 }
+
 resource "tfe_workspace" "aws" {
   name         = "hashicat-aws"
   project_id   = tfe_project.project.id
@@ -37,11 +41,12 @@ resource "tfe_workspace" "aws" {
 
   working_directory = "hcp-terraform/aws/"
   vcs_repo {
-    identifier = var.vcs_repo
-    branch = var.vcs_branch
+    identifier                 = var.vcs_repo
+    branch                     = var.vcs_branch
     github_app_installation_id = var.github_app_installation_id
   }
-  trigger_patterns = ["hcp-terraform/aws/"]
+  trigger_patterns    = ["hcp-terraform/aws/"]
+  assessments_enabled = var.assessments_enabled
 }
 
 # resource "tfe_variable" "tfc_aws_provider_auth" {

@@ -3,29 +3,21 @@ packer {
     amazon = {
       version = ">= 1.0.1"
       source  = "github.com/hashicorp/amazon"
-      # https://github.com/hashicorp/packer-plugin-amazon
-      # https://developer.hashicorp.com/packer/integrations/hashicorp/amazon
     }
 
     azure = {
       version = ">= 2.0.2"
       source  = "github.com/hashicorp/azure"
-      # https://github.com/hashicorp/packer-plugin-azure
-      # https://developer.hashicorp.com/packer/integrations/hashicorp/azure
     }
 
     googlecompute = {
       source  = "github.com/hashicorp/googlecompute"
       version = "~> 1"
-      # https://github.com/hashicorp/packer-plugin-googlecompute/
-      # https://developer.hashicorp.com/packer/integrations/hashicorp/googlecompute
     }
 
     ansible = {
       version = "~> 1"
       source  = "github.com/hashicorp/ansible"
-      # https://github.com/hashicorp/packer-plugin-ansible
-      # https://developer.hashicorp.com/packer/integrations/hashicorp/ansible
     }
   }
 }
