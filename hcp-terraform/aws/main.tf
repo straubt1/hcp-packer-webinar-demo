@@ -5,6 +5,11 @@ data "hcp_packer_artifact" "hashicat-image" {
   region       = var.region
 }
 
+data "hcp_packer_version" "hashicat-image" {
+  bucket_name  = "hashicat-ubuntu-2204"
+  channel_name = "release"
+}
+
 module "hashicat-aws" {
   source = "./aws-compute"
 
