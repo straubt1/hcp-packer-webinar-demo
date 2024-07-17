@@ -9,6 +9,7 @@ resource "azurerm_public_ip" "public_ip" {
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
   allocation_method   = "Dynamic"
+  domain_name_label   = "hashicat"
 }
 
 resource "azurerm_network_security_group" "nsg" {
@@ -18,7 +19,7 @@ resource "azurerm_network_security_group" "nsg" {
 
   security_rule {
     name                       = "allow_ssh_sg"
-    priority                   = 100 
+    priority                   = 100
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
@@ -57,7 +58,7 @@ resource "azurerm_network_interface" "example" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.example.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = azurerm_public_ip.public_ip.id
+    public_ip_address_id          = azurerm_public_ip.public_ip.id
   }
 }
 resource "azurerm_resource_group" "example" {
@@ -86,6 +87,6 @@ resource "azurerm_linux_virtual_machine" "example" {
     storage_account_type = "Standard_LRS"
   }
 
-    source_image_id = var.image_id
+  source_image_id = var.image_id
 
 }

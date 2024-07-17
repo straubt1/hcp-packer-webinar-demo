@@ -4,6 +4,6 @@ variable "region" {
 
 
 variable "image_id" {
-    description = "Image id"
-    default = ""
+  description = "Image id"
+  default     = ""
 }
