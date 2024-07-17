@@ -3,5 +3,5 @@ output "catapp_ip" {
 }
 
 output "catapp_url" {
-  value = azurerm_public_ip.public_ip.fqdn
+  value = "http://${azurerm_public_ip.public_ip.fqdn}"
 }
