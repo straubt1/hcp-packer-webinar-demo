@@ -96,7 +96,6 @@ source "googlecompute" "ubuntu-lts" {
   image_labels            = local.common_tags
 }
 
-
 build {
   name = "hashicat-build"
 
